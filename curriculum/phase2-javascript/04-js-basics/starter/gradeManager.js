@@ -1,14 +1,20 @@
 // ========== TASK 1: Create a student object ==========
 // Properties: name (string), age (number), grades (array of numbers)
 let student = {
-  // your code here
+  name: "John",
+  age: 20,
+  grades: [85, 92, 78, 96]
 };
 
 
 // ========== TASK 2: Calculate average grade ==========
 // Loop through grades array and return the average
 function getAverage(grades) {
-  // your code here
+  for (let i = 0; i <= grades.length; i++) {
+    total += grades [i];
+  }
+  let avg = total/grades.length;
+  console.log(avg);
 }
 
 
@@ -16,6 +22,17 @@ function getAverage(grades) {
 // 90+ = "A", 80+ = "B", 70+ = "C", 60+ = "D", below = "F"
 function getLetterGrade(average) {
   // your code here (use if/else)
+  if (average >= 90) {
+    return "A";
+  } else if (average >= 80) {
+    return "B";
+  } else if (average >= 70) {
+    return "C";
+  } else if (average >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
 }
 
 

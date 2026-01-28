@@ -1,5 +1,6 @@
 // ============================================
 // TODO 2: Import contacts from data.js
+import contacts from './data.js';
 // ============================================
 // Hint: import ______ from './data.js'
 
@@ -42,7 +43,7 @@ let contactsState = [...contacts];
 
 const displayPhone = (contact) => {
   // Write your code here
-
+  return contact.info?.phone || 'Not Available';
 };
 
 
@@ -68,7 +69,26 @@ const displayPhone = (contact) => {
 
 const addContact = () => {
   // Write your code here
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const phone = phoneInput.value;
 
+  const newContact = {
+    id: generateId(),
+    name: name,
+    info: {
+      email: email,
+      phone: phone
+    }
+  };
+
+  contactsState = [...contactsState, newContact];
+
+  nameInput.value = '';
+  emailInput.value = '';
+  phoneInput.value = ''; 
+
+  render();
 };
 
 
@@ -84,7 +104,8 @@ const addContact = () => {
 
 const deleteContact = (id) => {
   // Write your code here
-
+  contactsState = contactsState.filter(contact => contact.id !== id);
+  render();
 };
 
 
@@ -98,7 +119,7 @@ const deleteContact = (id) => {
 
 const getContactById = (id) => {
   // Write your code here
-
+  return contactsState.find(contact => contact.id === id);
 };
 
 
